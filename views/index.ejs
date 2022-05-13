@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="jumbotron">
+        <h1>Centro de Mensajessssssssssssss</h1>
+        <br />
+        <input
+          type="text"
+          id="inputUsername"
+          class="form-control w-50 my-2 mr-2"
+          placeholder="Ingresá tu email"
+        />
+        <hr />
+        <div id="mensajes">
+          <% if(mensajes){ mensajes.map(mensaje => { %>
+          <div>
+            <b style="color: blue"><%= mensaje.autor %></b>
+            <span style="color: brown"><%=mensaje.fyh%></span>
+            <i style="color: green"><%= mensaje.texto %></i>
+          </div>
+          <% }) } %>
+        </div>
+        <form id="form" class="form-inline" autocomplete="off">
+          <div class="form-group">
+            <input
+              id="inputMensaje"
+              type="text"
+              class="form-control my-2 mr-2"
+              placeholder="Ingresá un mensaje..."
+            />
+            <button id="btnEnviar" type="submit" class="btn btn-primary my-2">
+              Enviar!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="ejs.js"></script>
+  </body>
+</html>
